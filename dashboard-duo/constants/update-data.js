@@ -1,7 +1,7 @@
 const UPDATE_DATA = [
   {
     imgSrc: "./images/profile-2.jpg",
-    profileName: "Mike Tyson",
+    profileName: "Elliot Alderson",
     message: "received his order of Night lion tech GPS drone.",
     updatedTime: "2 Minutes Ago",
   },

@@ -1,7 +1,7 @@
 // Executes when document is loaded
 document.addEventListener("DOMContentLoaded", (ev) => {
 	// Recent Orders Data
-	document.addElementById("recent-orders--table").appendChild(buildTableBody());
+	document.getElementById("recent-orders--table").appendChild(buildTableBody());
 
 	// Updates Data
 	document
@@ -39,8 +39,8 @@ const buildTableBody = () => {
 	return tbody;
 };
 
-const buildUpdateList = () => {
-	const updateDAta = UPDATE_DATA;
+const buildUpdatesList = () => {
+	const updateData = UPDATE_DATA;
 
 	const div = document.createElement("div");
 	div.classList.add("updates");
