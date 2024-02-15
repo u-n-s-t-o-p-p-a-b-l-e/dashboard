@@ -1,33 +1,94 @@
 window.addEventListener('load', init);
+
+// Available levels
+const levels = {
+	easy: {time: 5, word: 'Easy'},
+	medium: {time: 3, word: 'Medium'},
+	hard: {time: 2, word: 'Hard'}
+};
+
+// To change levels
+const currentLevel = levels.easy;
+
+
+
 // Globals
-let time = 5;
+let time = currentLevel.time;
 let score = 0;
 let isPlaying;
 
 // 
-const wordInput = document.querySelector('#typing');
+const wordInput = document.querySelector('#word-input');
 const currentWord = document.querySelector('#current-word');
 const scoreDisplay = document.querySelector('#score');
 const timeDisplay = document.querySelector('#time');
 const message = document.querySelector('#message');
 const seconds = document.querySelector('#seconds');
+const currentLevels = document.querySelector('#current-level');
 
 const words = [
 	'test',
 	'programmer',
 	'computer',
-	'science'
+	'science',
+	'marvelous',
+	'excellent',
+	'faster',
+	'genius',
+	'cheerful',
+	'happy'
 ];
 
 // Initialize Game
 function init() {
-	console.log('init');
+	
+	// Show number of seconds
+	seconds.innerHTML = currentLevel.time;
 	// Load word from array
 	showWord(words);
-	setInterval(countdown,1000); 
+	// Start matching on word input
+	wordInput.addEventListener('input', startMatch);
+	// Call countdown every second
+	setInterval(countdown, 1000); 
 	// Check game status
-	setIntercal(checkStatus, 50)
+	setInterval(checkStatus, 50);
+	// Display the initial difficulty level 
+	displayDifficulty();
 }
+
+
+// Start match 
+function startMatch() {
+	if(matchWords()) {
+		isPlaying = true;
+		time = currentLevel.time + 1;
+		showWord(words);
+		wordInput.value = '';
+		score++;
+
+	}
+
+	// If score is -1, display 0
+	if(score === -1) {
+		scoreDisplay.innerHTML = 0;
+
+	} else {
+
+		scoreDisplay.innerHTML = score;
+	}
+}
+
+function matchWords() {
+	if (wordInput.value === currentWord.innerHTML) {
+		message.innerHTML = 'Correct word!';
+		return true;
+	} else {
+		message.innerHTML = '';
+		return false;
+	}
+
+}
+
 
 // Pick & show random words
 function showWord(words) {
@@ -44,7 +105,7 @@ function countdown() {
 		time--;
 	} else if(time === 0) {
 		isPlaying = false;
-		
+
 	}
 	timeDisplay.innerHTML = time;
 }
@@ -52,6 +113,12 @@ function countdown() {
 // Check game status
 function checkStatus() {
 	if(!isPlaying && time === 0) {
-	message.innerHTML = 'Game Over!';
+		message.innerHTML = 'Game Over!';
+		score = -1;
 	}
 }
+
+function displayDifficulty() {
+	currentLevels.innerHTML = currentLevel.word;
+}
+
