@@ -113,7 +113,12 @@ function countdown() {
 // Check game status
 function checkStatus() {
 	if(!isPlaying && time === 0) {
-		message.innerHTML = 'Game Over!';
+		const paragraph = document.createElement('p');
+        paragraph.textContent = 'CTRL + R or keep typing the right word again to restart.';
+
+
+		message.innerHTML = 'Game Over !';
+		message.appendChild(paragraph);
 		score = -1;
 	}
 }
