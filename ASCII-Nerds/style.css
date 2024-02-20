@@ -15,6 +15,11 @@ a:hover {
 }
 
 ul {
+	list-style-type: none;
+	min-width: 100px;
+}
+
+li {
 	float: left;
 	padding-right: 100px;
 }
