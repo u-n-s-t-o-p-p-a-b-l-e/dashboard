@@ -1,43 +1,10 @@
 @import url('https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css');
 
-
-button.neumorphic {
-	container-type: inline-size;
-	aspect-ratio: 1/1;
-	border: 0.5rem solid transparent;
-	border-radius: 1rem;
-	color: hsl(0 0% 10%);
-	background: none;
-
-	display: grid;
-	place-content: center;
-	gap: 1rem;
-
-	--shadow:
-	-.5rem -.5rem 1rem hsl(0 0% 100% / .75),
-	.5rem .5rem 1rem hsl(0 0% 50% / .5);
-	box-shadow: var(--shadow);
-	outline: none;
-	transition: all 0.1s;
-
-	&:active, &.active {
-		box-shadow:
-		var(--shadow),
-		inset .5rem .5rem 1rem hsl(0 0% 50% / .5),
-		inset -.5rem -.5rem 1rem hsl(0 0% 100% / .75);
-		color: hsl(10 80% 50%);
-		> i { font-size: 28cqi };
-		> span { font-size: 13cqi };
-	}
-
-	> i {
-		font-size: 31cqi;
-	}
-	> span {
-		font-family: system-ui, sans-serif;
-		font-size: 16cqi;
-	}
-}
+* {
+	* margin: 0;
+	* padding: 0;
+	* box-sizing: border-box;
+	* }
 
 body {
 	background-color: #e5e9f4;
@@ -51,6 +18,49 @@ h1 {
 	font-size: 3rem;
 }
 
+p {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+
+button.neumorphic {
+	aspect-ratio: 1/1; 
+	border: 0.5rem solid transparent;
+	border-radius: 1rem;
+	color: hsl(0 0% 10%);
+	background: none;
+	display: grid;
+	place-content: center;
+	gap: 1rem;
+	--shadow:
+	-.5rem -.5rem 1rem hsl(0 0% 100% / .75),
+	.5rem .5rem 1rem hsl(0 0% 50% / .5);
+	box-shadow: var(--shadow);
+	outline: none;
+	transition: all 0.1s;
+
+}
+
+button.neumorphic:active, button.neumorphic.active {
+	box-shadow:
+	var(--shadow),
+	inset .5rem .5rem 1rem hsl(0 0% 50% / .5),
+	inset -.5rem -.5rem 1rem hsl(0 0% 100% / .75);
+	color: hsl(10 80% 50%);
+	> i { font-size: 28px; }
+	> span { font-size: 13px; }
+
+	button.neumorphic > i {
+		font-size: 31px;
+	}
+
+	button.neumorphic > span {
+		font-family: system-ui, sans-serif;
+		font-size: 16px;
+	}
+}
+
 .buttons {
 	display: grid;
 	width: min(75rem, 100%);
@@ -58,3 +68,5 @@ h1 {
 	grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
 	gap: 2rem;
 }
+
+
