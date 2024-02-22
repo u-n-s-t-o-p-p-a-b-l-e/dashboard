@@ -52,7 +52,7 @@ h1 {
 
 .buttons {
 	display: grid;
-	width: min(75 rem, 100%);
+	width: min(75rem, 100%);
 	margin-inline: auto;
 	grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
 	gap: 2rem;
