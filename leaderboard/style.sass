@@ -1,0 +1,70 @@
+@import 'https://fonts.googleapis.com/css?family=Ubuntu'
+*
+
+  outline: none
+  user-select: none
+body, html
+  margin: 0
+  background: #ddd
+  height: 100%
+body 
+  font-family: 'Ubuntu', Arial, sans-serif
+  letter-spacing: 1px
+  background: #E8CBC0
+  background: -webkit-linear-gradient(to left, #E8CBC0 , #636FA4)
+  background: linear-gradient(to left, #E8CBC0 , #646FA4)
+  text-align: center
+  &::before
+    content: ''
+    height: 100%
+    display: inline-block
+    vertical-align: middle
+.leaderboard
+  background-color: #123
+  color: #eee
+  width: 300px
+  border-radius: 5px
+  top: 20%
+  box-shadow: 2px 5px 15px rgba(#123, .5)
+  text-align: left
+  display: inline-block
+  vertical-align: middle
+  h2
+    padding: 15px 0
+    margin: 0
+    text-align: center
+  p
+    margin: 3px 10px
+    text-align: right
+    color: #567
+  ol
+    list-style-type: none
+    margin: 0
+    padding: 0
+  li
+    counter-increment: leaderboard-num
+    padding: 15px 50px
+    position: relative
+    transition-duration: .3s
+    &::before
+      content: counter(leaderboard-num)
+      display: block
+      border-radius: 50%
+      width: 20px
+      height: 20px
+      background-color: white
+      color: #345
+      text-align: center
+      position: absolute
+      left: 15px
+    @for $i from 1 through 6
+      &:nth-of-type(#{$i})
+        background-color: lighten(#123, 2% * (7 - $i))
+        .percent
+          position: absolute
+          right: 15px
+        &:hover
+          transform: scale(1.1)
+      &:hover
+        li:not(:hover)
+          opacity: .3

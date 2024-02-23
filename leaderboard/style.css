@@ -1,0 +1,151 @@
+@import 'https://fonts.googleapis.com/css?family=Ubuntu';
+* {
+  outline: none;
+  user-select: none;
+}
+
+body, html {
+  margin: 0;
+  background: #ddd;
+  height: 100%;
+}
+
+body {
+  font-family: "Ubuntu", Arial, sans-serif;
+  letter-spacing: 1px;
+  background: #E8CBC0;
+  background: -webkit-linear-gradient(to left, #E8CBC0, #636FA4);
+  background: linear-gradient(to left, #E8CBC0, #646FA4);
+  text-align: center;
+}
+body::before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.leaderboard {
+  background-color: #123;
+  color: #eee;
+  width: 300px;
+  border-radius: 5px;
+  top: 20%;
+  box-shadow: 2px 5px 15px rgba(17, 34, 51, 0.5);
+  text-align: left;
+  display: inline-block;
+  vertical-align: middle;
+}
+.leaderboard h2 {
+  padding: 15px 0;
+  margin: 0;
+  text-align: center;
+}
+.leaderboard p {
+  margin: 3px 10px;
+  text-align: right;
+  color: #567;
+}
+.leaderboard ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.leaderboard li {
+  counter-increment: leaderboard-num;
+  padding: 15px 50px;
+  position: relative;
+  transition-duration: 0.3s;
+}
+.leaderboard li::before {
+  content: counter(leaderboard-num);
+  display: block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  color: #345;
+  text-align: center;
+  position: absolute;
+  left: 15px;
+}
+.leaderboard li:nth-of-type(1) {
+  background-color: #204161;
+}
+.leaderboard li:nth-of-type(1) .percent {
+  position: absolute;
+  right: 15px;
+}
+.leaderboard li:nth-of-type(1):hover {
+  transform: scale(1.1);
+}
+.leaderboard li:hover li:not(:hover) {
+  opacity: 0.3;
+}
+.leaderboard li:nth-of-type(2) {
+  background-color: #1e3c59;
+}
+.leaderboard li:nth-of-type(2) .percent {
+  position: absolute;
+  right: 15px;
+}
+.leaderboard li:nth-of-type(2):hover {
+  transform: scale(1.1);
+}
+.leaderboard li:hover li:not(:hover) {
+  opacity: 0.3;
+}
+.leaderboard li:nth-of-type(3) {
+  background-color: #1b3652;
+}
+.leaderboard li:nth-of-type(3) .percent {
+  position: absolute;
+  right: 15px;
+}
+.leaderboard li:nth-of-type(3):hover {
+  transform: scale(1.1);
+}
+.leaderboard li:hover li:not(:hover) {
+  opacity: 0.3;
+}
+.leaderboard li:nth-of-type(4) {
+  background-color: #19314a;
+}
+.leaderboard li:nth-of-type(4) .percent {
+  position: absolute;
+  right: 15px;
+}
+.leaderboard li:nth-of-type(4):hover {
+  transform: scale(1.1);
+}
+.leaderboard li:hover li:not(:hover) {
+  opacity: 0.3;
+}
+.leaderboard li:nth-of-type(5) {
+  background-color: #162c42;
+}
+.leaderboard li:nth-of-type(5) .percent {
+  position: absolute;
+  right: 15px;
+}
+.leaderboard li:nth-of-type(5):hover {
+  transform: scale(1.1);
+}
+.leaderboard li:hover li:not(:hover) {
+  opacity: 0.3;
+}
+.leaderboard li:nth-of-type(6) {
+  background-color: #14273b;
+}
+.leaderboard li:nth-of-type(6) .percent {
+  position: absolute;
+  right: 15px;
+}
+.leaderboard li:nth-of-type(6):hover {
+  transform: scale(1.1);
+}
+.leaderboard li:hover li:not(:hover) {
+  opacity: 0.3;
+}
+
+/*# sourceMappingURL=style.css.map */
