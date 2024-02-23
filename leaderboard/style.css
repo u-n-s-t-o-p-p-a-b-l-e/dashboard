@@ -51,13 +51,13 @@ body::before {
   margin: 0;
   padding: 0;
 }
-.leaderboard li {
+.leaderboard ol li {
   counter-increment: leaderboard-num;
   padding: 15px 50px;
   position: relative;
   transition-duration: 0.3s;
 }
-.leaderboard li::before {
+.leaderboard ol li::before {
   content: counter(leaderboard-num);
   display: block;
   border-radius: 50%;
@@ -69,83 +69,32 @@ body::before {
   position: absolute;
   left: 15px;
 }
-.leaderboard li:nth-of-type(1) {
+.leaderboard ol li:nth-of-type(1) {
   background-color: #204161;
 }
-.leaderboard li:nth-of-type(1) .percent {
-  position: absolute;
-  right: 15px;
-}
-.leaderboard li:nth-of-type(1):hover {
-  transform: scale(1.1);
-}
-.leaderboard li:hover li:not(:hover) {
-  opacity: 0.3;
-}
-.leaderboard li:nth-of-type(2) {
+.leaderboard ol li:nth-of-type(2) {
   background-color: #1e3c59;
 }
-.leaderboard li:nth-of-type(2) .percent {
-  position: absolute;
-  right: 15px;
-}
-.leaderboard li:nth-of-type(2):hover {
-  transform: scale(1.1);
-}
-.leaderboard li:hover li:not(:hover) {
-  opacity: 0.3;
-}
-.leaderboard li:nth-of-type(3) {
+.leaderboard ol li:nth-of-type(3) {
   background-color: #1b3652;
 }
-.leaderboard li:nth-of-type(3) .percent {
-  position: absolute;
-  right: 15px;
-}
-.leaderboard li:nth-of-type(3):hover {
-  transform: scale(1.1);
-}
-.leaderboard li:hover li:not(:hover) {
-  opacity: 0.3;
-}
-.leaderboard li:nth-of-type(4) {
+.leaderboard ol li:nth-of-type(4) {
   background-color: #19314a;
 }
-.leaderboard li:nth-of-type(4) .percent {
-  position: absolute;
-  right: 15px;
-}
-.leaderboard li:nth-of-type(4):hover {
-  transform: scale(1.1);
-}
-.leaderboard li:hover li:not(:hover) {
-  opacity: 0.3;
-}
-.leaderboard li:nth-of-type(5) {
+.leaderboard ol li:nth-of-type(5) {
   background-color: #162c42;
 }
-.leaderboard li:nth-of-type(5) .percent {
-  position: absolute;
-  right: 15px;
-}
-.leaderboard li:nth-of-type(5):hover {
-  transform: scale(1.1);
-}
-.leaderboard li:hover li:not(:hover) {
-  opacity: 0.3;
-}
-.leaderboard li:nth-of-type(6) {
+.leaderboard ol li:nth-of-type(6) {
   background-color: #14273b;
 }
-.leaderboard li:nth-of-type(6) .percent {
+.leaderboard ol li .percent {
   position: absolute;
   right: 15px;
 }
-.leaderboard li:nth-of-type(6):hover {
+.leaderboard ol li:hover {
   transform: scale(1.1);
 }
-.leaderboard li:hover li:not(:hover) {
+.leaderboard ol:hover li:not(:hover) {
   opacity: 0.3;
 }
 
-/*# sourceMappingURL=style.css.map */
