@@ -32,13 +32,23 @@ $(document).ready(function () {
 			}
 			// Five to
 			else if (minute >= 52) {
+				$('.ten').removeClass('active');
+				$('.five').addClass('active');
+				$('.to').addClass('active');
+
+				$('.' + (hour + 1).toString()).addClass('active');
+			}
+
+			// Ten to 
+			else if (minute >= 49) {
 				$('.a').removeClass('active');
-				$('.quarter').removeclass('active')
+				$('.quarter').removeClass('active');
 				$('.ten').addClass('active');
 				$('.to').addClass('active');
 
 				$('.' + (hour + 1).toString()).addClass('active');
 			}
+
 			// Quarter to
 			else if (minute >= 43) {
 				$('.twenty').removeClass('active');
@@ -93,6 +103,15 @@ $(document).ready(function () {
 
 				$('.' + (hour).toString()).addClass('active');
 			}
+			// Five past 
+			else if (minute >= 3) {
+				$('.oclock').removeClass('active');
+				$('.five').addClass('active');
+				$('.past').addClass('active');
+
+				$('.' + (hour).toString()).addClass('active');
+			}
+
 			// On the hour 
 			else {
 				$('.oclock').addClass('active');
@@ -111,4 +130,5 @@ $(document).ready(function () {
 
 
 	} (window.clockJS = window.clockJS || {}, jQuery));
+	clockJS.init();
 });
