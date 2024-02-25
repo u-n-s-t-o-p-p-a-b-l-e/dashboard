@@ -9,8 +9,17 @@ body {
 	height: 100vh;
 }
 
-.title {
+.main-title {
 	color: mintcream;
+	text-transform: uppercase;
+	margin-top: 3em;
+	margin-bottom: 1em;
+	font-size: 1.5em;
+	letter-spacing: 0.3em;
+}
+
+.title {
+	color: crimson;
 	text-transform: uppercase;
 	margin-top: 3em;
 	margin-bottom: 3em;
