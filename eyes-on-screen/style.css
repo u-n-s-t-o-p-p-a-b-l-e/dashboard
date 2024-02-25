@@ -132,6 +132,13 @@ li {
 		transform: scale(1.2);
 	}
 	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+@keyframes hit {
+	0% {
 		-webkit-transform: scale(1.2);
 		transform: scale(1.2);
 	}
@@ -167,12 +174,9 @@ li {
 		transform: translate(0);
 	}
 }
+
 @keyframes vibrate-1 {
 	0% {
-		-webkit-transform: translate(0);
-		transform: translate(0);
-	}
-	20% {
 		-webkit-transform: translate(0);
 		transform: translate(0);
 	}
