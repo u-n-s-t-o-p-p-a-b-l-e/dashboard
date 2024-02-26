@@ -1,0 +1,61 @@
+body {
+	background: #000;
+}
+
+#hint {
+	color: #CCC;
+	font-family: Arial, sans-serif;
+	font-size: 19px;
+	line-height: 30px;
+	text-align: center;
+	letter-spacing: 1px;
+	display: none;
+	position: relative;
+	z-index: 10;
+	opacity: 0.75;
+	background: #000;
+}
+
+#buttons {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -250%;
+	margin-top: -60px;
+	font-size: 73px;
+	color: #FFF;
+	width: 500px;
+	line-height: 120px;
+	vertical-align: middle;
+}
+
+#buttons .more,
+#buttons .less {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+#buttons .more:hover,
+#buttons .less:hover {
+	opacity: 1;
+}
+
+#buttons .less {
+	float: left;
+}
+
+#buttons .less:active {
+	color: #C00;
+}
+
+#buttons .more {
+	float:right;
+}
+
+#buttons .more:active {
+	color: #0C0;
+}
