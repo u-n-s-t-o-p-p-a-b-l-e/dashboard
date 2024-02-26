@@ -92,3 +92,31 @@ function batUpdate() {
 			rgba(255, 255, 255, 0.1) 95%, 
 			rgba(255, 255, 255, 0.5) 98%)");
 }
+
+function showOff() {
+	clearInterval(showingOff);
+	car chgInt = 8;
+	if(charge < 40) {
+		showingOff = setInterval(function() {
+			if(charge + chgInt < 63) {
+				charge = charge + chgInt;
+				batUpdate();
+			} else {
+				charge = 63;
+				batUpdate();
+				clearInterval(showingOff);
+			}
+		}, 350);
+	} else {
+		showingOff = setInterval(function() {
+			if(charge-chgInt > 11) {
+				charge = charge-chgInt;
+				batUpdate();
+			} else {
+				charge = 63;
+				batUpdate();
+				clearInterval(showingOff);
+			}
+		}, 350);
+	}
+}
