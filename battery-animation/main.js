@@ -2,7 +2,7 @@ $(function() {
 	showOff();
 	noInput = setTimeout(function() {
 		$("#hint").show();
-	}, 8000);
+	},3000);
 });
 
 var mouseTimer, showingOff, noInput, charge = default_charge = 63;
@@ -23,7 +23,7 @@ $("div", "#buttons").mousedown(function() {
 			return false;
 		}
 		batUpdate();
-	}, 250);
+	},250);
 }).click(function() {
 	clearInterval(noInput);
 	clearInterval(mouseTimer);
@@ -51,51 +51,12 @@ function batUpdate() {
 		col = ["#316d08", "#60b939", "#51aa31", "#53ce11", "#255405"];
 	}
 
-	$("#battery").css(
-		"background-image", 
-		"linear-gradient(to right, 
-		transparent 5%,
-			"+col[0]+" 5%,
-			"+col[0]+" 7%,
-			"+col[1]+" 8%,
-			"+col[1]+" 10%,
-			"+col[2]+" 11%,
-			"+col[2]+" 
-
-		"+ (charge-3) +"%, 
-			"+col[3]+" 
-
-			"+ (charge-2) +"%,
-			"+col[3]+"
-
-			"+ (charge-2) +"%,
-			"+col[3]+" " +charge +"%,
-			"+col[4]+" "+ charge +"%,
-
-		
-		black "+ (charge+5) +"%, 
-		black 95%, 
-		transparent 95%), 
-		linear-gradient(to bottom, 
-			rgba(255, 255, 255, 0.5) 0%, 
-			rgba(255, 255, 255, 0.4) 4%, 
-			rgba(255, 255, 255, 0.2) 7%, 
-			rgba(255, 255, 255, 0.2) 14%, 
-			rgba(255, 255, 255, 0.8) 14%, 
-			rgba(255, 255, 255, 0.2) 40%, 
-			rgba(255, 255, 255, 0) 41%, 
-			rgba(255, 255, 255, 0) 80%, 
-			rgba(255, 255, 255, 0.2) 80%, 
-			rgba(255, 255, 255, 0.4) 86%, 
-			rgba(255, 255, 255, 0.6) 90%, 
-			rgba(255, 255, 255, 0.1) 92%, 
-			rgba(255, 255, 255, 0.1) 95%, 
-			rgba(255, 255, 255, 0.5) 98%)");
+	$("#battery").css("background-image", "linear-gradient(to right, transparent 5%, "+col[0]+" 5%, "+col[0]+" 7%, "+col[1]+" 8%, "+col[1]+" 10%, "+col[2]+" 11%, "+col[2]+" "+ (charge-3) +"%, "+col[3]+" "+ (charge-2) +"%, "+col[3]+" " +charge +"%, "+col[4]+" "+ charge +"%, black "+ (charge+5) +"%, black 95%, transparent 95%), linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.4) 4%, rgba(255, 255, 255, 0.2) 7%, rgba(255, 255, 255, 0.2) 14%, rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0) 41%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0.4) 86%, rgba(255, 255, 255, 0.6) 90%, rgba(255, 255, 255, 0.1) 92%, rgba(255, 255, 255, 0.1) 95%, rgba(255, 255, 255, 0.5) 98%)"); 
 }
 
 function showOff() {
 	clearInterval(showingOff);
-	car chgInt = 8;
+	var chgInt = 8;
 	if(charge < 40) {
 		showingOff = setInterval(function() {
 			if(charge + chgInt < 63) {
@@ -106,7 +67,7 @@ function showOff() {
 				batUpdate();
 				clearInterval(showingOff);
 			}
-		}, 350);
+		},350);
 	} else {
 		showingOff = setInterval(function() {
 			if(charge-chgInt > 11) {
@@ -117,6 +78,6 @@ function showOff() {
 				batUpdate();
 				clearInterval(showingOff);
 			}
-		}, 350);
+		},350);
 	}
 }
