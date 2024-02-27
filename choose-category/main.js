@@ -1,3 +1,27 @@
+var $infobox = $('.infobox');
+var $infoboxCount = $infobox.find('.selected-count');
+var $infoboxNames = $infobox.find('.selected-names');
+var $categories = $('.categories');
+var $scrollButtons = $('.categories-scroll');
+
+$(document).on('click', 'category-link', function(e) {
+	e.preventDefault();
+	selectCategory($(this).closest('category'));
+});
+
+$(window).on('resize', adjustCategoriesContainer);
+
+$scrollButtons.on('click', function() {
+	if ($(this).hasClass('categories-scroll-left')) {
+		scrollCategoriesContainer(-1);
+	} else {
+		scrollCategoriesContainer(1);
+	}
+});
+
+adjustCategoriesContainer();
+updateInfobox();
+
 function selectCategory($category) {
 	$category.toggleClass('category-selected');
 	updateInfobox();
