@@ -4,9 +4,9 @@ var $infoboxNames = $infobox.find('.selected-names');
 var $categories = $('.categories');
 var $scrollButtons = $('.categories-scroll');
 
-$(document).on('click', 'category-link', function(e) {
+$(document).on('click', '.category-link', function(e) {
 	e.preventDefault();
-	selectCategory($(this).closest('category'));
+	selectCategory($(this).closest('.category'));
 });
 
 $(window).on('resize', adjustCategoriesContainer);
@@ -37,7 +37,7 @@ function updateInfobox() {
 	});
 	var totalCategories = $('.category').length;
 	$infoboxCount.text(`${selectedCount} / ${totalCategories} selected`);
-	$infoboxNames.html(selectedCategories.join(' / ') || '&nbsp;')
+	$infoboxNames.html(selectedCategories.join(' / ') || '&nbsp;');
 } 
 
 function adjustCategoriesContainer() {
@@ -53,5 +53,5 @@ function adjustCategoriesContainer() {
 function scrollCategoriesContainer(direction) {
 	var offset = $('.category').first().width() * direction;
 	var scrollLeft = $categories.scrollLeft() + offset;
-	$categories.animat({ scrollLeft: scrollLeft }, 250);
+	$categories.animate({ scrollLeft: scrollLeft }, 250);
 }

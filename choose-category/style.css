@@ -206,7 +206,7 @@ ul {
 	margin-bottom: 1rem;
 }
 
-infobox p {
+.infobox p {
 	line-height: 1.2;
 }
 
@@ -249,7 +249,7 @@ infobox p {
 	background-color: #707070;
 }
 
-.card-steps-items:nth-child(2) {
+.card-steps-item:nth-child(2) {
 	left: 1.2rem;
 	opacity: 0.8;
 	transform: scale(0.8);
@@ -305,7 +305,7 @@ infobox p {
 	.categories-scroll {
 		display: none !important;
 	}
-	.categoriy {
+	.category {
 		width: 100%;
 		height: auto;
 		margin: 0.5rem 0;
