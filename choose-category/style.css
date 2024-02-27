@@ -218,3 +218,100 @@ infobox p {
 .infobox p:last-child {
 	color: #34c044;
 }
+
+.card-footer {
+	display: flex;
+	align-items: center;
+	padding: 0 3rem;
+	height: 10rem;
+	border-radius: 0 0 5px 5px;
+	background-color: #fff;
+}
+
+.card-steps {
+	display: flex;
+	align-items: center;
+	margin-right: auto;
+	position: relative;
+}
+
+.card-steps-item {
+	width: 4rem;
+	height: 4rem;
+	position: absolute;
+	top: calc(50% - 2rem);
+	left: 0;
+	font-size: 0;
+	text-align: center;
+	line-height: 4rem;
+	color: #fff;
+	border-radius: 50%;
+	background-color: #707070;
+}
+
+.card-steps-items:nth-child(2) {
+	left: 1.2rem;
+	opacity: 0.8;
+	transform: scale(0.8);
+}
+
+.card-steps-item:nth-child(3) {
+	left: 2.4rem;
+	opacity: 0.5;
+	transform: scale(0.6);
+}
+
+.card-steps-item:nth-child(4) {
+	left: 3.6rem;
+	opacity: 0.2;
+	transform: scale(0.4);
+}
+
+.card-steps-item-current {
+	z-index: 1;
+	font-size: 1.6rem;
+	background-color: #19ba30;
+	opacity: 1;
+}
+
+.card-button {
+	display: block;
+	padding: 1.5rem 2.5rem;
+	border: none;
+	background-color: transparent;
+}
+
+.card-button-disabled {
+	color: #999;
+}
+
+@media all and (max-width: 600px) {
+	body {
+		align-items: flex-start;
+	}
+	.card {
+		margin: 2rem;
+	}
+	.card-content {
+		align-items: stretch;
+	}
+	.card-title {
+        margin-bottom: 3rem;	
+	}
+	.categories {
+		flex-direction: column;
+		padding: 0 1rem;
+	}
+	.categories-scroll {
+		display: none !important;
+	}
+	.categoriy {
+		width: 100%;
+		height: auto;
+		margin: 0.5rem 0;
+	}
+	.infobox {
+		margin-top: 3rem;
+		margin-bottom: 2rem;
+	}
+}
