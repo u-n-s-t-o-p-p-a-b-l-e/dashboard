@@ -1,0 +1,23 @@
+html {
+	background: #333;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+#c {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -260px;
+}
+
+.s {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	float: left;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+}
