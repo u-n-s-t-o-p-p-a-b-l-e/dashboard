@@ -4,11 +4,25 @@ body {
 
 .clock {
 	position: absolute;
+	text-align: center;
 	top: 50%;
-	left: 50%;
+	left: 10%;
 	transform: translateX(-50%) translateY(-50%);
-	color: #17D4FE;
-	font-size: 60px;
+	color: #34e2e2;
+	font-size: 3rem;
 	font-family: Orbitron;
 	letter-spacing: 7px;
+	width: 20px;
+}
+
+h1 {
+	position: relative;
+	color: white;
+	margin-top: 15rem;
+	text-align:center;
+	text-transform: uppercase;
+	font-family: Orbitron;
+	font-size: 1rem;
+	letter-spacing: 3px;
+
 }
