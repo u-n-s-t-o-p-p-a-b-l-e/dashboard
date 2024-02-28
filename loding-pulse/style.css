@@ -21,3 +21,57 @@ html {
 	-moz-transition: all 0.2s;
 	transition: all 0.2s;
 }
+
+.s:nth-child(n+2) {
+	margin-left: 80px;
+}
+
+.s:nth-child(1) {
+	background: #33ffbb;
+	-webkit-animation: r0 2s 0s ease-out infinite;
+	-moz-animation: r0 2s 0s ease-out infinite;
+	animation: r0 2s 0s ease-out infinite;
+}
+
+.s:nth-child(1):hover {
+	background: #ff3333;
+	-webkit-animation: r20 0.5s 0.4s ease-out infinite;
+	-moz-animation: r20 0.5s 0.4s ease-out infinite;
+	animation: r20 0.5s 0.4s ease-out infinite;
+}
+
+@-webkit-keyframes r0 {
+	0% {
+		box-shadow: 0 0 8px 6px rgba(26, 255, 179, 0), 0 0 0px 0px #333, 0 0 0px 0px rgba(26, 255, 179, 0);
+	}
+	10% {
+		box-shadow: 0 0 8px 6px #1affb3, 0 0 12px 10px #333, 0 0 12px 14px #1affb3;
+	}
+	100% {
+		box-shadow: 0 0 8px 6px rgba(26, 255, 179, 0), 0 0 0px 40px #333, 0 0 0px 40px rgba(26, 255, 179, 0);
+	}
+}
+
+
+@-moz-keyframes r0 {
+	0% {
+		box-shadow: 0 0 8px 6px rgba(26, 255, 179, 0), 0 0 0px 0px #333, 0 0 0px 0px rgba(26, 255, 179, 0);
+	}
+	10% {
+		box-shadow: 0 0 8px 6px #1affb3, 0 0 12px 10px #333, 0 0 12px 14px #1affb3;
+	}
+	100% {
+		box-shadow: 0 0 8px 6px rgba(26, 255, 179, 0), 0 0 0px 40px #333, 0 0 0px 40px rgba(26, 255, 179, 0);
+	}
+}
+@keyframes r0 {
+	0% {
+		box-shadow: 0 0 8px 6px rgba(26, 255, 179, 0), 0 0 0px 0px #333, 0 0 0px 0px rgba(26, 255, 179, 0);
+	}
+	10% {
+		box-shadow: 0 0 8px 6px #1affb3, 0 0 12px 10px #333, 0 0 12px 14px #1affb3;
+	}
+	100% {
+		box-shadow: 0 0 8px 6px rgba(26, 255, 179, 0), 0 0 0px 40px #333, 0 0 0px 40px rgba(26, 255, 179, 0);
+	}
+}
