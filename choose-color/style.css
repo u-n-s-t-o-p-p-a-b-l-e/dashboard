@@ -1,5 +1,6 @@
 body {
 	background-color: #af8cf0;
+	margin-top: 14rem;
 }
 
 .btn {
@@ -21,4 +22,41 @@ body {
 .Writing {
 	background-color: #FFE339;
 	transition-duration: 0.3s;
+}
+
+.btn.Writing {
+	box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2px -2px;
+}
+
+.btn.Writing:hover, .btn.active.Writing {
+	background: #ffdc06;
+	border-bottom: 1px solid #d2b400;
+}
+
+.Drawing {
+	background-color: #F9666E;
+	transition-duration: 0.3s;
+}
+
+.btn.Drawing {
+	box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2px -2px;
+}
+
+.btn.Drawing:hover, .btn.active.Drawing {
+	background: #f7353f;
+	border-bottom: 1px solid #f00916;
+}
+
+.Random {
+	background-color: #af8cf0;
+	transition-duration: 0.3s;
+}
+
+.btn.Random {
+	box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2px -2px;
+}
+
+.btn.Random:hover, btn.active.Random {
+	background: #905fea;
+	border-bottom: 1px solid #7032e4;
 }
