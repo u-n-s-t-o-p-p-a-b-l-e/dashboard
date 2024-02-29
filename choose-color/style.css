@@ -3,6 +3,10 @@ body {
 	margin-top: 14rem;
 }
 
+p {
+	text-align: center;
+}
+
 .Writing {
 	background-color: #FFE339;
 	transition-duration: 0.3s;
