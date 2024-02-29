@@ -96,8 +96,6 @@ html, body {
 	background-color: #b73892;
 }
 
-
-
 .nav-item:nth-child(3) {
 	background-color: #fff3d9;
 }
@@ -113,7 +111,6 @@ html, body {
 .nav-item:nth-child(3) span:before {
 	background-color: #eda600;
 }
-
 
 .nav-item:nth-child(4) {
 	background-color: #afedf7;
