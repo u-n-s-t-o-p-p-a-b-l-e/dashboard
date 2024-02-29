@@ -3,22 +3,6 @@ body {
 	margin-top: 14rem;
 }
 
-.btn {
-	margin-bottom: 5px;
-}
-
-.btn.active {
-	font-weight: bold;
-}
-
-.note #category {
-	display: inline-block;
-}
-
-.note #prompt {
-	font-size: 3rem;
-}
-
 .Writing {
 	background-color: #FFE339;
 	transition-duration: 0.3s;
@@ -60,3 +44,45 @@ body {
 	background: #905fea;
 	border-bottom: 1px solid #7032e4;
 }
+
+.Compliment {
+	background-color: #63CCEC;
+	transition-duration: 0.3s;
+}
+
+.btn.Compliment {
+	box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2px -2px;
+}
+
+.btn.Compliment:hover, .btn.active.Compliment {
+	background: #36bde6;
+	border-bottom: 1px solid #19a5d0;
+}
+
+.Quote {
+	background-color: #81e6a0;
+	transition-duration: 0.3s;
+}
+
+.btn.Quote:hover, .btn.active.Quote {
+	background: #56de80;
+	border-bottom: 1px solid #2cd560;
+}
+
+
+.btn {
+	margin-bottom: 5px;
+}
+
+.btn.active {
+	font-weight: bold;
+}
+
+.note #category {
+	display: inline-block;
+}
+
+.note #prompt {
+	font-size: 3rem;
+}
+
