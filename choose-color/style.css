@@ -1,0 +1,24 @@
+body {
+	background-color: #af8cf0;
+}
+
+.btn {
+	margin-bottom: 5px;
+}
+
+.btn.active {
+	font-weight: bold;
+}
+
+.note #category {
+	display: inline-block;
+}
+
+.note #prompt {
+	font-size: 3rem;
+}
+
+.Writing {
+	background-color: #FFE339;
+	transition-duration: 0.3s;
+}
