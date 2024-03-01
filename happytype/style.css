@@ -2,7 +2,7 @@
 :root {
 	--bgColor: #666;
 	--textPrimary: #fff;
-	--textSecondary: #666;
+	--textSecondary: #000;
 	--primaryColor: #F08000;
 }
 body {
@@ -117,8 +117,9 @@ div.word {
 	height: 1.6rem;
 	background: var(--primaryColor);
 	position: fixed;
-	top: 198px;
-	left: 18px;
+	top: 30%;
+	left: 30%;
+	transform: translate(-50%, -50%);
 	animation: blink .3s infinite;
 }
 
