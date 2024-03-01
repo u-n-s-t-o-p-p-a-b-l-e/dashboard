@@ -13,14 +13,54 @@ body {
 
 }
 
+main {
+	width: 600px;
+	margin: 50px auto;
+}
+
 h1 {
 	color: var(--primaryColor);
 }
 
 h1 svg {
+	position: relative;
+	top: 0.18em;
 	width: 40px;
 	font-weight: 400;
     font-style: normal;
 	fill: var(--primaryColor);
 
+}
+#header {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin: 20px 6px 30px;
+}
+
+#buttons {
+	text-align: right;
+}
+
+#info {
+	color: var(--primaryColor);
+}
+
+button {
+	background: rgba(255, 255, 255, .2);
+	border: 0;
+	color: rgba(255, 255, 255, .5);
+	padding: 5px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+div#game {
+	line-height: 35px;
+	height: 105px;
+	overflow: hidden;
+	position: relative;
+}
+
+div#game:focus {
+	outline: 0;
 }
