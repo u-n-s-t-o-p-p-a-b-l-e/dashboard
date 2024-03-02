@@ -1,0 +1,14 @@
+.card-background {
+	background-size: cover;
+	background-position: center;
+	border-radius: var(--spacing-l);
+	bottom: 0;
+	filter: brightness(0.75) saturate(1.2) contrast(0.85);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	transform-origin: center;
+	transform: scale(1) translateZ(0);
+	transition: filter 200ms linear, transform 200ms linear;
+}
