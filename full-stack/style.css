@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:root {
+	--black: #373737;
+	--sect1: #ff9900;
+	--sect2: #2196F3;
+	--sect3: #e63232;
+	--sect4: #8BC34A;
+	--sect5: #8946ff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	transition: all 0.5 ease 0s;
+	font-family: 'Varela Round', cursive;
+}
+
+body:after {
+	content: "Progress Bar only in Chrome";
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	color: var(--black);
+	font-size: 1rem;
+	padding: 20px 0;
+}
