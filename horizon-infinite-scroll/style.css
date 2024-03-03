@@ -1,7 +1,32 @@
-/* img { */
-/* 	width: 150px; */
-/* 	height: 150px; */
-/* } */
+:root {
+	--clr-neutral-100: hsl(0, 0%, 100%);
+	--clr-primary-100: hsl(205, 15%, 58%);
+	--clr-primary-400: hsl(215, 25%, 27%);
+	--clr-primary-800: hsl(217, 33%, 17%);
+	--clr-primary-900: hsla(177, 100%, 20%, 1);
+}
+
+html {
+	color-scheme: dark;
+}
+
+body {
+	display: grid;
+	min-block-size: 100vh;
+	place-content: center;
+	font-family: system-ui;
+	font-size: 1.125rem;
+	background-color: var(--clr-primary-900);
+}
+
+
+img {
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 0.25rem;
+
+}
 .scroller {
 	max-width: 600px;
 }
@@ -25,14 +50,14 @@
 	mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 }
 
-.scroller[data-animated="true"].scroller-inner {
+.scroller[data-animated="true"] .scroller-inner {
 	width: -webkit-max-content;
 	width: -moz-max-content;
 	width: max-content;
 	flex-wrap: nowrap;
 	-webkit-animation: scroll var(--_animation-duration, 40s)
 	var(--_animation-direction, forwards) linear infinite;
-	animation: scroll var(--_animation-duration, 40s)
+	        animation: scroll var(--_animation-duration, 40s)
 	var(--_animation-direction, forwards) linear infinite;
 }
 
@@ -54,30 +79,16 @@
 
 @-webkit-keyframes scroll {
 	to {
-		transform: translate(calc(-50 - 0.5rem));
+		transform: translate(calc(-50% - 0.5rem));
 	}
 }
 
-:root {
-	--clr-neutral-100: hsl(0, 0%, 100%);
-	--clr-primary-100: hsl(205, 25%, 58%);
-	--clr-primary-400: hsl(215,25%, 27%);
-	--clr-primary-800: hsl(217, 33%, 17%);
-	--clr-primary-900: hsl(218, 33%, 9%);
+@keyframes scroll {
+	to {
+		transform: translate(calc(-50% - 0.5rem));
+	}
 }
 
-html {
-	color-scheme: dark;
-}
-
-body {
-	display: grid;
-	min-block-size: 100vh;
-	place-content: center;
-	font-family: system-ui;
-	font-size: 1.125rem;
-	background-color: var(--clr-primary-800);
-}
 
 .tag-list {
 	margin: 0;
@@ -89,7 +100,7 @@ body {
 	padding: 1rem;
 	background: var(--clr-primary-400);
 	border-radius: 0.5rem;
-	box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900);
+	box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-800);
 }
 
 .test {
