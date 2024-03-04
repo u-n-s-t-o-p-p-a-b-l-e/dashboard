@@ -137,3 +137,43 @@ class="w-full h-full object-cover"
 
 	return productElement;
 }
+
+function updateCart(e) {
+	
+	if (statusEl.classList.contains('added')) {
+		statusEl.classList.remove('added');
+		statusEl.innerText = 'Add To Cart';
+		statusEl.classList.remove('bg-red-600');
+		statusEl.classList.add('bg-gray-800');
+
+		cartItemCount--;
+	} else {
+		statusEl.classList.add('added');
+		statusEl.innerText = 'Remove From Cart';
+		statusEl.classList.remove('bg-gray-800');
+		statusEl.classList.add('bg-red-600');
+
+		cartItemCount++;
+	}
+
+	cartCount.innerText = cartItemCount.toString();
+}
+
+function filterProducts() {
+	const searchTerm = searchInput.value.trim().toLowerCase();
+
+	const checkedCategories = Array.from(checkboxes).filter((check) => check.checked).map((check) => check.id);
+
+	productElements.forEach((productElement, index) => {
+		const product = products[index];
+
+		const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm);
+		const isInCheckedCategory = checkedCategories.length === 0 || checkedCategories.includes(product.category);
+
+		if (matchesSearchTerm && isInCheckedCategory) {
+			productElement.classList.remove('hidden');
+		} else {
+			productElement.classList.add('hidden');
+		}
+	});
+}
