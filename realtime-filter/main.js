@@ -2,100 +2,100 @@ const products = [
 	{
 
 		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
+		url: './img/playstation-5.png',
 		category: 'games',
 		price: 499.99,
 	},
 {
 
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
-		category: 'games',
-		price: 499.99,
+		name: 'Samsung Galaxy',
+		url: './img/samsung-galaxy.png',
+		category: 'smartphones',
+		price: 399.99,
 	},
 
 {
 
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
+		name: 'Cannon EOS Camera',
+		url: './img/cannon-eos-camera.png',
 		category: 'games',
-		price: 499.99,
+		price: 749.99,
 	},
 
 {
 
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
-		category: 'games',
-		price: 499.99,
+		name: 'Sony A7 Camera',
+		url: './img/sony-a7-camera.png',
+		category: 'cameras',
+		price: 1999.99,
 	},
 
 {
 
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
-		category: 'games',
-		price: 499.99,
+		name: 'LG TV',
+		url: './img/lg-tv.png',
+		category: 'televisions',
+		price: 799.99,
 	},
 
 {
 
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
+		name: 'Nintendo Switch',
+		url: './img/nintendo-switch.png',
 		category: 'games',
-		price: 499.99,
+		price: 299.99,
 	},
 
 {
 
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
-		category: 'games',
-		price: 499.99,
-	},
-
-{
-
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
+		name: 'Xbox Series X',
+		url: './img/xbox-series-x.png',
 		category: 'games',
 		price: 499.99,
 	},
 
 {
 
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
-		category: 'games',
+		name: 'Samsung TV',
+		url: './img/samsung-tv.png',
+		category: 'televisions',
+		price: 1099.99,
+	},
+
+{
+
+		name: 'Sony ZV1F Camera',
+		url: './img/sony-zv1f-camera.png',
+		category: 'cameras',
+		price: 799.99,
+	},
+
+{
+
+		name: 'Google Pixel',
+		url: './img/google-pixel.png',
+		category: 'smartphones',
 		price: 499.99,
 	},
 
 {
 
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
-		category: 'games',
+		name: 'Toshiba TV',
+		url: './img/toshiba-tv.png',
+		category: 'televisions',
 		price: 499.99,
 	},
 
 {
 
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
-		category: 'games',
-		price: 499.99,
-	},
-
-{
-
-		name: 'Sony Playstation 5',
-		url: 'https://i.ibb.co/zHmZnWx/playstation-5.png',
-		category: 'games',
-		price: 499.99,
+		name: 'iPhone 14',
+		url: './img/iphone-14.png',
+		category: 'smartphones',
+		price: 999.99,
 	},
 ];
 
-const checkboxes = document.getElementById('check');
+const checkboxes = document.querySelectorAll('.check'); 
 const productsWrapper = document.getElementById('products-wrapper');
 const filtersContainer = document.getElementById('filters-container');
 const searchInput = document.getElementById('search');
@@ -123,14 +123,14 @@ function createProductElement(product) {
 	productElement.innerHTML = `<div class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border rounded-xl"
 >
 <img
-src="${product.utl}"
+src="${product.url}"
 alt="${product.name}"
 class="w-full h-full object-cover"
 />
 <button class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
 >Add To Cart</button>
 </div>
-<p class="text-xl">4{Product.name}</p>
+<p class="text-xl">${product.name}</p>
 <strong>$${product.price.toLocaleString()}</strong>`;
 
 	productElement.querySelector('.status').addEventListener('click', updateCart);
@@ -139,6 +139,7 @@ class="w-full h-full object-cover"
 }
 
 function updateCart(e) {
+	const statusEl = e.target; 
 	
 	if (statusEl.classList.contains('added')) {
 		statusEl.classList.remove('added');
