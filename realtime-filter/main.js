@@ -114,3 +114,26 @@ products.forEach((product) => {
 
 filtersContainer.addEventListener('change', filterProducts);
 searchInput.addEventListener('input', filterProducts);
+
+function createProductElement(product) {
+	const productElement = document.createElement('div');
+
+	productElement.className = 'item space-y-2';
+
+	productElement.innerHTML = `<div class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border rounded-xl"
+>
+<img
+src="${product.utl}"
+alt="${product.name}"
+class="w-full h-full object-cover"
+/>
+<button class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
+>Add To Cart</button>
+</div>
+<p class="text-xl">4{Product.name}</p>
+<strong>$${product.price.toLocaleString()}</strong>`;
+
+	productElement.querySelector('.status').addEventListener('click', updateCart);
+
+	return productElement;
+}
