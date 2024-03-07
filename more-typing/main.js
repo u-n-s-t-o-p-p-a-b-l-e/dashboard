@@ -47,12 +47,12 @@ function highlightCharacters() {
 			if (lineDisplayText[i] === userInput[i] && lineDisplayText[i] !== ' ') {
 				highlightedText += `<span class="highlight-correct">${lineDisplayText[i]}</span>`;
 			} else if (lineDisplayText[i] !== ' ') {
-				highlightedText += `<span class="highlight-incorrect">${lineDisplayText[i]</span>}`;
+				highlightedText += `<span class="highlight-incorrect">${lineDisplayText[i]}</span>`;
 			} else {
 				highlightedText += ' ';
 			}
 		} else if (i === userInputLength && userInput.trim() === lineDisplayText.trim()) {
-			highlighted += `<span class="highlight-correct">${lineDisplayText.slice(i)}</span>`;
+			highlightedText += `<span class="highlight-correct">${lineDisplayText.slice(i)}</span>`;
 			break;
 		} else {
 			highlightedText += lineDisplaytext[i];
@@ -61,3 +61,58 @@ function highlightCharacters() {
 
 	linedisplay.innerHTML = highlightedText;
 }
+
+function startTyping() {
+	startTime = new Date().getTime();
+	typingArea.addEventListener('input', () => {
+		userInput = typingArea.textContent;
+		const wpm = calculateWPM();
+		const accuracy = calculateAccuracy();
+		wpmDisplay.textContent = `${wpm} WPM`;
+		accuracyDisplay.textContent = `${accuracy}% Accuracy`;
+		highlightCharacters();
+
+		const currentLine = sourceContent.split('\n')[currentLineIndex];
+		if (userInput.trim() === currentLine) {
+			currentLineIndex++;
+			if (currentLineIndex < sourceContent.split('\n').length) {
+				displayLine();
+				typingArea.textContent = '';
+				userInput = '';
+			} else {
+				lineDisplay.textContent = 'Congratulations! You have completed the text';
+			}
+		}
+	});
+}
+
+function resetTyping() {
+	userInput = '';
+	typingArea.textContent = '';
+	currentLineIndex = 0;
+	wpmDisplay.textContent = '0 WPM';
+	accuracyDisplay.textContent = '0% Accuracy';
+	lineDisplay.innerHTML = '';
+}
+
+sourceText.addEventListener('input', () => {
+	sourceContent = sourceText.value;
+	resetTyping();
+	displayLine();
+	startTyping();
+});
+
+fileInput.addEventListener('change', (event) => {
+	const file = event.target.files[0];
+	const reader = new FileReader();
+
+	reader.onload = () => {
+		sourceContent = reader.result;
+		sourceText.value = sourceContent;
+		resetTyping();
+		displayLine();
+		startTyping();
+	};
+
+	reader .readAsText(file);
+});
