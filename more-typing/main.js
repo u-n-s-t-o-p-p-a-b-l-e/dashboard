@@ -5,9 +5,9 @@ const wpmDisplay = document.getElementById('wpmDisplay');
 const accuracyDisplay = document.getElementById('accuracyDisplay');
 const fileInput = document.getElementById('fileInput');
 
-let sourceContext = '';
+let sourceContent = '';
 let userInput = '';
-currentLineIndex = 0;
+let currentLineIndex = 0;
 let startTime;
 let endTime;
 
@@ -21,7 +21,7 @@ function calculateWPM() {
 function calculateAccuracy() {
 	const currentLine = sourceContent.split('\n')[currentLineIndex];
 	const totalChars = currentLine.replace(/\s/g, '').length;
-	const correctChars = userInput.split('').filter((char, i) = char === currentLine[i] && char !== ' ').length;
+	const correctChars = userInput.split('').filter((char, i) => char === currentLine[i] && char !== ' ').length;
 	const accuracy = Math.round((correctChars / totalChars) * 100);
 	return accuracy;
 }
@@ -55,11 +55,11 @@ function highlightCharacters() {
 			highlightedText += `<span class="highlight-correct">${lineDisplayText.slice(i)}</span>`;
 			break;
 		} else {
-			highlightedText += lineDisplaytext[i];
+			highlightedText += lineDisplayText[i];
 		}
 	}
 
-	linedisplay.innerHTML = highlightedText;
+	lineDisplay.innerHTML = highlightedText;
 }
 
 function startTyping() {
