@@ -5,6 +5,16 @@ const wpmDisplay = document.getElementById('wpmDisplay');
 const accuracyDisplay = document.getElementById('accuracyDisplay');
 const fileInput = document.getElementById('fileInput');
 
+
+document.getElementById('typingArea').addEventListener
+('keydown', (evt) => {
+	if (evt.keyCode === 13) {
+		evt.preventDefault();
+	}
+});
+
+
+
 let sourceContent = '';
 let userInput = '';
 let currentLineIndex = 0;
