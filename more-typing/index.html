@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>More Typing</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./style.css">
-</head>
-<body>
-<div class="container">
-<h1>More Typing</h1>
-<textarea id="sourceText" cols="10" rows="10" placeholder="Paste your text or code here..."></textarea>
-<div id="lineDisplay"></div>
-<div id="typingArea" contenteditable="true"></div>
-<div id="stats">
-<span id="wpmDisplay">0 WPM</span>
-<span id="accuracyDisplay">0% Accuracy</span>
-</div>
-<input type="file" id="fileInput" accept=".txt,.js,.py,.java,.c,.cpp">
-<label for="fileInput">Or upload a file</label>
+	<head>
+		<meta charset="UTF-8">
+		<title>More Typing</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>More Typing</h1>
+			<textarea id="sourceText" cols="10" rows="10" placeholder="Paste your text or code here..."></textarea>
 
-</div>
+			<div id="lineDisplay"></div>
 
-	<script src="./main.js"></script>
-</body>
+			<div id="typingArea" contenteditable="true" data-text="Start typing..."></div>
+
+			<div id="stats">
+				<span id="wpmDisplay">0 WPM</span>
+				<span id="accuracyDisplay">0% Accuracy</span>
+			</div>
+
+			<input type="file" id="fileInput" accept=".txt,.js,.py,.java,.c,.cpp,.php,.rs,.html,.css">
+			<label for="fileInput">Or upload a file</label>
+
+		</div>
+
+		<script src="./main.js"></script>
+	</body>
 </html>
