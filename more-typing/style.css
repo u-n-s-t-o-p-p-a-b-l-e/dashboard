@@ -9,12 +9,40 @@ body {
 	padding: 20px;
 }
 
-textarea, #typingArea {
+#typingArea {
+	border: 0.04rem solid grey;
+	height: 40px;
+	border-radius: 0.34rem;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+#typingArea:focus {
+	border: 0.04rem solid grey;
+	height: 40px;
+	background-color: grey;
+	border-radius: 0.34rem;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+input[type=file] {
+	background-color: black;
+	color: white;
+	cursor: pointer;
+	border-radius: 0.4rem;
+	margin-top: 2rem;
+}
+
+
+
+textarea {
 	width: 100%;
-height: 200px;
-padding: 10px;
-box-sizing: border-box;
-resize: none;
+	height: 200px;
+	padding: 10px;
+	box-sizing: border-box;
+	resize: none;
+	border-radius: 0.4rem;
 }
 
 #lineDisplay {
