@@ -5,10 +5,9 @@ const wpmDisplay = document.getElementById('wpmDisplay');
 const accuracyDisplay = document.getElementById('accuracyDisplay');
 const fileInput = document.getElementById('fileInput');
 
-
-document.getElementById('typingArea').addEventListener
-('keydown', (evt) => {
-	if (evt.keyCode === 13) {
+// Preventing user to using Enter key 
+document.getElementById('typingArea').addEventListener('keydown', (evt) => {
+	if (evt.key === 'Enter') {
 		evt.preventDefault();
 	}
 });
@@ -23,22 +22,41 @@ let endTime;
 
 function calculateWPM() {
 	const typedWords = userInput.trim().split(/\s+/g).length;
-	const typingDuration = (endTime - startTime) / 60000; 
-	const wpm = Math.round(typedWords / typingDuration);
-	return wpm;  
+	const typingDuration = (startTime - endTime) / 60000;
+	console.log('typed words: ', typedWords);
+	console.log('typing duration: ', typingDuration);
+
+	if (typingDuration !== 0) {
+		const wpm = Math.round(typedWords / typingDuration);
+		return wpm;  
+
+	} else {
+		return 0; 
+	}
+
+
 }
 
 function calculateAccuracy() {
 	const currentLine = sourceContent.split('\n')[currentLineIndex];
-	const totalChars = currentLine.replace(/\s/g, '').length;
-	const correctChars = userInput.split('').filter((char, i) => char === currentLine[i] && char !== ' ').length;
-	const accuracy = Math.round((correctChars / totalChars) * 100);
-	return accuracy;
+
+	if (currentLine) {
+		const totalChars = currentLine.replace(/\s/g, '').length;
+		const correctChars = userInput.split('').filter((char, i) => char === currentLine[i] && char !== ' ').length;
+		const accuracy = Math.round((correctChars / totalChars) * 98);
+		return accuracy;
+
+	} else {
+		console.log('warning: current line is undefined');
+		return 0; 
+	}
+
+
 }
 
 function displayLine() {
 	const lines = sourceContent.split('\n');
-	const currentLine = lines[currentLineIndex];
+	const currentLine = lines[currentLineIndex].trimStart();
 	lineDisplay.textContent = currentLine;
 	clearHighlighting();
 }
@@ -76,24 +94,55 @@ function startTyping() {
 	startTime = new Date().getTime();
 	typingArea.addEventListener('input', () => {
 		userInput = typingArea.textContent;
-		const wpm = calculateWPM();
-		const accuracy = calculateAccuracy();
-		wpmDisplay.textContent = `${wpm} WPM`;
-		accuracyDisplay.textContent = `${accuracy}% Accuracy`;
-		highlightCharacters();
+		// const wpm = calculateWPM();
+		// const accuracy = calculateAccuracy();
+		// wpmDisplay.textContent = `${wpm} WPM`;
+		// accuracyDisplay.textContent = `${accuracy}% Accuracy`;
+		// highlightCharacters();
 
 		const currentLine = sourceContent.split('\n')[currentLineIndex];
 		if (userInput.trim() === currentLine) {
-			currentLineIndex++;
-			if (currentLineIndex < sourceContent.split('\n').length) {
-				displayLine();
-				typingArea.textContent = '';
-				userInput = '';
-			} else {
-				lineDisplay.textContent = 'Congratulations! You have completed the text';
-			}
+			advanceToNextLine(); 
+			//currentLineIndex++;
+			// if (currentLineIndex < sourceContent.split('\n').length) {
+			// 	displayLine();
+			// 	typingArea.textContent = '';
+			// 	userInput = '';
+			// } else {
+			// 	lineDisplay.textContent = 'Congratulations! You have completed the text.';
+			// }
+		} else {
+			updateStats(); 
 		}
 	});
+}
+
+function updateStats() {
+	const wpm = calculateWPM();
+	const accuracy = calculateAccuracy();
+
+	if (!isNaN(wpm)) {
+		wpmDisplay.textContent = `${wpm} WPM`;
+
+	} else {
+		wpmDisplay.textContent = 'N/A'; 
+	}
+
+
+	accuracyDisplay.textContent = `${accuracy}% Accuracy`;
+	highlightCharacters();
+
+}
+
+function advanceToNextLine() {
+	currentLineIndex++;
+	if (currentLineIndex < sourceContent.split('\n').length) {
+		displayLine();
+		typingArea.textContent = '';
+		userInput = '';
+	} else {
+		lineDisplay.textContent = 'The text has completed.'; 
+	}
 }
 
 function resetTyping() {
@@ -124,5 +173,5 @@ fileInput.addEventListener('change', (event) => {
 		startTyping();
 	};
 
-	reader .readAsText(file);
+	reader.readAsText(file);
 });

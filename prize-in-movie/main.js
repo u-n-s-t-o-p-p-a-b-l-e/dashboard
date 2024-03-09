@@ -41,23 +41,17 @@ const createDigit = (digit, trackIndex) => {
 	}
 
 	trackElement.innerText = digits.join(" ");
-
 	trackElement.style.transitionDuration = `${config.transitionDuration}ms`;
-
 	digitElement.appendChild(trackElement);
-
 	return digitElement;
 }
 
 const setup = () => {
 	let index = 0;
-
 	const prizeText = getPrizeText();
-
 	for(const character of getFormattedPrize()) {
 		const element = isNaN(character)
-		? createCharacter(character) : createDigit(character, index++);
-
+			? createCharacter(character) : createDigit(character, index++);
 		prizeText.appendChild(element);
 	}
 }
@@ -67,7 +61,6 @@ const animate = () => {
 		const digit = getPrizeDigitByIndex(index),
 			iterations = determineIterations(index),
 			activeDigit = ((iterations - 1) * 10) + digit;
-
 		track.style.translate = `0rem ${activeDigit * -10}rem`;
 	});
 }
@@ -85,24 +78,20 @@ const resetAnimation = () => {
 
 window.onload = () => {
 	setup();
-
 	setTimeout(animate);
 };
 
 const handleRedo = () => {
 	resetAnimation();
-
 	animate();
 }
 
 const updateTheme = theme => {
 	document.documentElement.style.setProperty("--theme-rgb", `var(--${theme})`);
-
 	for(const button of document.querySelectorAll(".theme-button")) {
 		button.dataset.selected = theme === button.dataset.theme;
 	}
 }
 
 const handleChangeTheme = e => updateTheme(e.currentTarget.dataset.theme);
-
 updateTheme("green");
