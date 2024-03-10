@@ -3,11 +3,19 @@ body { overflow: hidden; }
 
 .time {
 	position: absolute;
-	left: 500px;
+	top: 70px;
+	left: 30%;
+	margin: 70px;
 	}
 
 h1 {
 	font-family: Verdana, sans-serif;
+	font-size: 4rem;
+	margin-bottom: 0;
+}
+
+p {
+	font-style: italic;
 }
 
 #watch {
