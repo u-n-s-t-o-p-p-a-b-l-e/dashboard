@@ -40,3 +40,62 @@ html, body {
 	font-size: 16vmin;
 	font-family: "Permanent Marker";
 }
+
+.category-1 .node:after {
+	background: #3A3A3A;
+}
+
+.category-2 .node:after {
+	background: #7B8083;
+}
+
+.category-3 .node:after {
+	background: #FFF;
+}
+
+.category-4 .node:after {
+	background: #B87FFC; 
+}
+
+.category-5 .node:after {
+	background: #643FE1;
+}
+
+.category-6 .node:after {
+	background: #212A67;
+}
+
+.category-8 .node:after {
+	background: #25D1ED;
+}
+
+.category-9 .node:after {
+	background: #1EA163;
+}
+
+.category-10 .node:after {
+	background: #85FD35;
+}
+
+
+.category-11 .node:after {
+	background: #FAFA38;
+}
+
+.category-12 .node:after {
+	background: #F97031;
+}
+
+.category-13 .node:after {
+	background: #FC20A7;
+}
+
+.category-14 .node:after {
+	background: #FC20A7;
+}
+
+.category-15 .node:after {
+	background: 388199B;
+}
+
+
