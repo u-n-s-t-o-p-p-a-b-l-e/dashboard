@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	background: #1A1A1A;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 240%;
+	width: 170%;
+	padding: 10vmin;
+	transform-style: preserve-3d;
+	transform: translate(-20%, -30%) rotateX(-45deg) rotateY(-15deg) rotateZ(-30deg) scale(0.4);
+}
+
+.category {
+	display: flex;
+	align-items: center;
+}
+
+.node {
+	position: relative;
+	flex: 1;
+	border: 1px solid #444;
+}
+
+.node:after {
+	z-index: 2;
+}
+
+.category label {
+	color: #AAA;
+	margin-right: 1em;
+	font-size: 16vmin;
+	font-family: "Permanent Marker";
+}
