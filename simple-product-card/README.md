@@ -4,5 +4,5 @@
 
 <br />
 
--Hover Effects Included
--Multi-size Images
++ Hover Effects Included
++ Multi-size Images
