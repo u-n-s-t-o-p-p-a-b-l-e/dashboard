@@ -5,7 +5,7 @@
 }
 
 body {
-	background-color: #28223F;
+	background-color: #016180;
 	font-family: Montserrat, sans-serif;
 
 	display: flex;
@@ -38,7 +38,7 @@ p {
 }
 
 .card-container {
-	background-color: #231E29;
+	background-color: #001840;
 	border-radius: 5px;
 	box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
 	color: #B3B8CD;
@@ -52,7 +52,7 @@ p {
 
 .card-container .pro {
 	color: #231E39;
-	background-color: #FEBB0B;
+	background-color: #FF0000;
 	border-radius: 3px;
 	font-size: 14px;
 	font-weight: bold;
@@ -63,14 +63,14 @@ p {
 }
 
 .card-container .round {
-	border: 1px solid #03BFCB;
+	border: 1px solid #009DD1;
 	border-radius: 50%;
 	padding: 7px;
 }
 
 button.primary {
-	background-color: #03BFCB;
-	border: 1px solid #03BFCB;
+	background-color: #009DD1;
+	border: 1px solid #009DD1;
 	border-radius: 3px;
 	color: #231E39;
 	font-family: Montserrat, sans-serif;
@@ -80,7 +80,7 @@ button.primary {
 
 button.primary.ghost {
 	background-color: transparent;
-	color: #02899C;
+	color: #009DD1;
 }
 
 .skills {
