@@ -1,0 +1,18 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800);
+
+body {
+	background: #35485a;
+}
+
+span.footer {
+	color: #1d2733;
+	font: 700 14px "Open Sans", sans-serif !important;
+}
+
+nav {
+	margin-top: 20px;
+	width: 100%;
+	color: #1d2733;
+	font: 700 14px "Open Sans", sans-serif !important;
+}
