@@ -1,4 +1,3 @@
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800);
 
 body {
@@ -81,7 +80,7 @@ ul li.items .product-price {
 }
 
 ul li.items .product-price:before {
-	content: "P ";
+	content: "$ ";
 }
 
 ul li.items .items-img-holder {
