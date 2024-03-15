@@ -17,7 +17,73 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
+<div id="body">
+<div class="out-wrap">
+<h1 class="text-center">Enter Card Details</h1>
+<div id="payment" ng-app="myApp" ng-controller="myCtrl">
+<div class="details">
+<div class="input-wrap four-num">
+<input maxlength="4" ng-model="f4" type="text">
+<input maxlength="4" ng-model="s4" type="text">
+<input maxlength="4" ng-model="t4" type="text">
+<input maxlength="4" ng-model="l4" type="text">
+</div>
 
+<div class="input-wrap">
+<label>Card Holder's Name</label>
+<input ng-model="hname" type="text">
+</div>
+<div class="halfbox">
+<label>Valid Till</label>
+<div class="twin">
+<input maxlength="2" ng-model="edm" type="text">
+<input maxlength="2" ng-model="edy" type="text">
+</div>
+</div>
+
+<div class="input-wrap">
+	<label>CVV</label>
+	<input maxlength="3" ng-model="cvv" type="text">
+</div>
+</div>
+</div>
+
+
+<div class="card">
+<div>
+<div class="clayout">
+<div class="c-front">
+<p class="chiplogo">
+<span class="chip">
+	<b class="master"></b>
+</span>
+</p>
+
+<p class="cnum">
+<span ng-bind="fx">XXXX</span> - <span ng-bind="s4">XXXX</span> - <span ng-bind="t4">XXXX</span> - <span ng-bind="14">XXXX</span>
+</p>
+
+<p class="cname"><span>Card Holder</span><label ng-bind="hname">UNSTOPPABLE INC</label></p>
+<p class="cvtr"><span>Valid Till</span> <label ng-bind="edm">01</label> / <label ng-bind="edy">28</label></p>
+</div>
+
+
+<div class="c-back">
+<p class="topc"><span>136589433</span> <span>sddv5</span></p>
+<p class="backit"></p>
+<p class="cvv">
+<span>CCW</span><b ng-bind="cvv"></b></p>
+<p class="chiplogo">
+<span class="logo">
+<b class="master"></b>
+</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 
