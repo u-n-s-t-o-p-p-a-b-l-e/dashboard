@@ -3,7 +3,7 @@
 }
 
 body {
-	background-image: radial-gradient(circle, 3000 25vmin, #024 100vmax);
+	background-image: radial-gradient(circle, #000 25vmin, #024 100vmax);
 	display: flex;
 	align-items: center;
 	justify-content: center;
