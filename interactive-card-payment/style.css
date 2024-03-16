@@ -229,4 +229,119 @@
 	bottom: 0;
 }
 
+#body .out-wrap #payment .card .clayout .c-front .chiplogo > span.logo, #body .out-wrap #payment .card .clayout .c-back .chiplogo > span.logo {
+	transform: translated(0, 0, 0);
+}
 
+#body .out-wrap #payment .card .clayout .c-front .chiplogo > span.logo b, #body .out-wrap #payment .card .clayout .c-back .chiplogo > span.logo b {
+	width: 75px;
+	margin-left: auto;
+	display: block;
+	height: 100%;
+	background-size: auto 130% !important;
+	background-position-y: center !important;
+	transform: translateZ(0);
+}
+/* TODO: get mastercard image */
+#body .out-wrap #payment .card .clayout .c-front .chiplogo > span.logo b.master, #body .out-wrap #payment .card .clayout .c-back .chiplogo > span.logo b.master {
+	background: url() no-repeat;
+	background-position-x: 10px;
+}
+
+/* TODO: get visa image */
+#body .out-wrap #payment .card .clayout .c-front .chiplogo > span.logo b.visa, #body .out-wrap #payment .card .clayout .c-back .chiplogo > span.logo b.visa {
+	background: url() no-repeat;
+	background-position-x: -60px;
+}
+
+#body .out-wrap #payment .card .clayout .c-front .chiplogo > span:last-child, #body .out-wrap #payment .card .clayout .c-back .chiplogo > span:last-child {
+	text-align: right;
+}
+
+#body .out-wrap #payment .card .clayout .c-front .cnum #body .out-wrap #payment .card .clayout .c-back .cnum {
+	margin: 20px 0;
+	font-size: 20px;
+	width: 100%;
+	justify-content: space-between;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	font-family: monospace;
+}
+
+#body .out-wrap #payment .card .clayout .c-front .cnum span, #body .out-wrap #payment .card .clayout .c-back .cnum span {
+	letter-spacing: 5px;
+	font-family: "Josefin Sans", sans-serif;
+	flex: 1;
+	text-align: center;
+}
+
+#body .out-wrap #payment .card .clayout .c-front .cname, #body .out-wrap #payment .card .clayout .c-front .cvtr, #body .out-wrap #payment .card .clayout .c-back .cname, #body .out-wrap #payment .card .clayout .c-back .cvtr {
+	min-height: 35px;
+	max-width: 215px;
+	overflow: hidden;
+}
+
+#body .out-wrap #payment .card .clayout c.fornt .cname > span, #body .out-wrap #payment .card .clayout .c-front .cvtr > span, #body .out-wrap #payment .card .clayout .c-back .cname > span, #body .out-wrap #payment .card .clayout .c-back .cvtr > span {
+	display: block;
+	font-size: 8px;
+	color: #ccc;
+}
+
+#body .out-wrap #payment .card .clayout .c-front .cname label, #body .out-wrap #payment .card .clayout .c-front .cvtr label, #body .out-wrap #payment .card .clayout .c-back .cname label, #body .out-wrap #payment .card .clayout .c-back .cvtr label {
+	text-transform: uppercase;
+}
+
+#body .out-wrap #payment .card .clayout .c-fron .cvtr, #body .out-wrap #payment .card .clayout .c-back .cvtr {
+	text-align: center;
+}
+
+#body .out-wrap #payment .card .clayout .c-back {
+	padding: 0;
+	align-items: initial;
+	z-index: 1;
+	transform: rotateY(180deg);
+}
+
+#body .out-wrap #payment .card .clayout .c-back .topc {
+	line-height: 20px;
+	padding: 0 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	font-size: 8px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#body .out-wrap #payment .card .clayout .c-back .backit {
+	height: 35px;
+	background: #333;
+	width: 100%;
+}
+
+#body .out-wrap #payment .card .clayout .c-back .cvv {
+	margin: 0 30px;
+	width: 100%;
+	text-align: right;
+}
+
+#body .out-wrap #payment .card .clayout .c-back .cvv b {
+	border-radius: 5px;
+	line-height: 25px;
+	height: 25px;
+	margin-top: 5px;
+	padding-right: 5px;
+	background: #fff;
+	display: block;
+	color: #000;
+}
+
+#body .out-wrap #payment .card .clayout .c-back .chiplogo {
+	margin: 0 15px 30px 0;
+	justify-content: flex-end;
+}
+
+.four-num, .cnum {
+	font-family: "roboto" !important;
+}
