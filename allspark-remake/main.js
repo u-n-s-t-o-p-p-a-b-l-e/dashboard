@@ -10,6 +10,7 @@ canvas.style.height = "auto";
 canvas.style.userSelect = "none";
 
 const dpr = Math.max(1, .5*window.devicePixelRatio)
+
 function resize() {
 	const {
 		innerWidth: width,
@@ -27,6 +28,8 @@ window.onresize = resize
 const vertexSource = `#version 300 es
 #ifdef GL_FRAGMENT_PRECISION_HIGH
 precision highp float;
+#else
+precision mediump float;
 #endif
 
 in vec4 position;
@@ -37,6 +40,9 @@ void main(void) {
 `
 
 const fragmentSource = `#version 300 es
+
+
+
 #ifdef GL_FRAGMENT_PRECISION_HIGH
 precision highp float;
 #else
@@ -101,7 +107,7 @@ float fbm(vec2 p) {
 	}
 	return t;
 }
-vec3 palette(float t) { vec3 a=vec3(.2),b=vec3(.4),c=vec3(1),d=vec3(.12,.14,.16); return a+b*cos(6.3*(c*t*+d)); }
+vec3 palette(float t) { vec3 a=vec3(.2),b=vec3(.4),c=vec3(1),d=vec3(.12,.14,.16); return a+b*cos(6.3*(c*t+d)); }
 vec3 pattern(vec2 uv) { 
     vec2 p=uv;
 	vec3 col=vec3(0);
