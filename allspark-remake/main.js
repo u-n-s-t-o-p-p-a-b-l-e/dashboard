@@ -65,10 +65,86 @@ float map(vec3 p) {
     float d=5e5,
 	room = -(length(p)-10.);
 	d = min(d, box(p,vec3(1))-.025);
+	d = min(d, room);
+	if (d < room) mat = 1.;
+	else mat = .0;
+	return d;
+}
+vec3 notm(vec3 p) {
+    float h=1e-3;
+    vec2 k=vec2(-1,1);
+	return N(
+	k.xyy*map(p+k.xyy*h)+
+	k.yxy*map(p+k.yxy*h)+
+	k.yyx*map(p+k.yyx*h)+
+	k.xxx*map(p+k.xxx*h)
+	);
+}
+void cam(inout vec3 p) {
+	if (P>0) {
+	  p.yz*rot(-mouse.y*6.3+3.14);
+	  p.xz*=rot(3.14-mouse.x*6.3);
+	} else {
+	  float t = T*.2;
+	  p.yz *= rot(-t*.5);
+	  p.xz *= rot(t);
+	}
+}
+float rnd(vec2 p) { return fract(sin(dor(p,vec2(12.9898,78.233)))*345678.); }
+float noise(vec2 p ) { vec2 i=floor(p),f=fract(p),u=S(.0,1.,f),s=vec2(1,0);
+float a=rnd(i),b=rnd(i+s),c=rnd(i+s.yx),d=rnd(i+1.); return mix(mix(a,b,u,x), mix(c,d,u.x),u.y); }
+float fbm(vec2 p) {
+	float t=.o, a=1.;
+	for (int i=0; i<5; i++) {
+	    t+=a*noise(p);
+		p*=2.;
+		a*=.5;
+	}
+	return t;
 }
 
+vec3 palette(float t) { vec3 a=vec3(.2),b=vec3(.4),c=vec3(1),d=vec3(.12,.14,.16); return a+b*cos(6.3*(c*t*+d)); }
+vec3 pattern(vec2 uv) {
+    vec2 p=uv;
+	vec3 col=vec3(0);
+	float d=1.;
+	for (float i=.0; i<3.; i++) {
+	    uv*=2.;
+		d=fbm(uv*d);
+		col+=palette(d+length(p)-T)*.5;
+	}
+	return col;
+}
+vec3 bg(vec3 p) {
+  return mix(vec3(.5,.7,.9),vec3(.9,.7,.5),p.y*.5+.5);
+}
+void main() {
+  vec2 uv = (FC-.5*R)/min(R.x,R.y);
+  vec3 col = vec3(0),
+  p=vec3(0,0,-6),
+  rd=N(vec3(uv,1)),
+  l=N(vec3(0,10,0));
+  cam(p);
+  cam(rd);
+  const float steps=400., maxd=12.;
+  for (float i=.0; i<steps; i++) {
+  float d=map(p);
+  if (d<1e-3) {
+    vec3 n=norm(p),
+	r=reflect(rd,n),
+	bkg=bg(r);
+	float spec=max(.0,-r.y),
+	diff=max(.0,dot(l,n)*.5+.5);
+	n.xz=abs(n.xz);
+	col=mat == .0 ? mix(bkg,bg(r),1.-diff)*pow(spec,20.) : pattern(p.xy)*n.z+pattern(p.xz)*n.y+pattern(p.yz)*n.x;
 
-
+	break;
+  }
+  if (d>maxd) break;
+  [+=rd*d;]
+  }
+  O=vec4(col,1);
+}
 `
 
 function compile(shader, source) {
@@ -87,7 +163,7 @@ function setup() {
 	const fs = gl.createShader(gl.FRAGMENT_SHADER)
 
 	compile(vs, vertexSource)
-	compie(fs, fragmentSource)
+	compile(fs, fragmentSource)
 
 	program = gl.createProgram()
 
@@ -127,7 +203,7 @@ function init() {
 	program.pointerCount = gl.getUniformLocation(program, 'pointerCount')
 }
 
-count mouse = {
+const mouse = {
 	x: 0, y: 0, touches: new Set(),
 	update: function(x, y, pointerId) {
 		this.x = x*dpr; this.y = canvas.height-y*dpr; this.touches.add(pointerId)
