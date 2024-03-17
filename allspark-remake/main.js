@@ -4,12 +4,12 @@ const gl = canvas.getContext("webgl2")
 document.title = "🤖";
 document.body.innerHTML = "";
 document.body.appendChild(canvas);
-document.body.style = "margin: 0; touch-action: none; overflow: hidden;";
+document.body.style = "margin:0;touch-action:none;overflow:hidden;";
 canvas.style.width = "100%";
 canvas.style.height = "auto";
 canvas.style.userSelect = "none";
 
-const dpr = Math.max(2, .5 * window.devicePixelRatio)
+const dpr = Math.max(1, .5*window.devicePixelRatio)
 function resize() {
 	const {
 		innerWidth: width,
@@ -24,8 +24,8 @@ function resize() {
 
 window.onresize = resize
 
-const vertextSource = `#version 300 es
-#ifder GL_FRAGMENT-PRECISION_HIGH
+const vertexSource = `#version 300 es
+#ifdef GL_FRAGMENT_PRECISION_HIGH
 precision highp float;
 #endif
 
@@ -41,8 +41,8 @@ const fragmentSource = `#version 300 es
 precision highp float;
 #else
 precision mediump float;
-#endfi
-out vec4 0;
+#endif
+out vec4 O;
 uniform vec2 resolution;
 uniform float time;
 uniform int pointerCount;
@@ -54,11 +54,11 @@ uniform vec2 touch;
 #define T time
 #define S smoothstep
 #define N normalize
-#define rot(a) mat2(cos(a-vec$(0,11,33,0)))
+#define rot(a) mat2(cos(a-vec4(0,11,33,0)))
 float vmax(vec3 v) { return max(max(v.x, v.y), v.z); }
 float box(vec3 p, vec3 s) {
-vec3 d = abs(p)-s;
-return length(max(d,.0))+vmax(min(d,.0));
+  vec3 d = abs(p)-s;
+  return length(max(d,.0))+vmax(min(d,.0));
 }
 float mat = .0;
 float map(vec3 p) {
@@ -70,7 +70,7 @@ float map(vec3 p) {
 	else mat = .0;
 	return d;
 }
-vec3 notm(vec3 p) {
+vec3 norm(vec3 p) {
     float h=1e-3;
     vec2 k=vec2(-1,1);
 	return N(
@@ -82,7 +82,7 @@ vec3 notm(vec3 p) {
 }
 void cam(inout vec3 p) {
 	if (P>0) {
-	  p.yz*rot(-mouse.y*6.3+3.14);
+	  p.yz*=rot(-mouse.y*6.3+3.14);
 	  p.xz*=rot(3.14-mouse.x*6.3);
 	} else {
 	  float t = T*.2;
@@ -90,11 +90,10 @@ void cam(inout vec3 p) {
 	  p.xz *= rot(t);
 	}
 }
-float rnd(vec2 p) { return fract(sin(dor(p,vec2(12.9898,78.233)))*345678.); }
-float noise(vec2 p ) { vec2 i=floor(p),f=fract(p),u=S(.0,1.,f),s=vec2(1,0);
-float a=rnd(i),b=rnd(i+s),c=rnd(i+s.yx),d=rnd(i+1.); return mix(mix(a,b,u,x), mix(c,d,u.x),u.y); }
+float rnd(vec2 p) { return fract(sin(dot(p,vec2(12.9898,78.233)))*345678.); }
+float noise(vec2 p ) { vec2 i=floor(p),f=fract(p),u=S(.0,1.,f),s=vec2(1,0); float a=rnd(i),b=rnd(i+s),c=rnd(i+s.yx),d=rnd(i+1.); return mix(mix(a,b,u.x),mix(c,d,u.x),u.y); }
 float fbm(vec2 p) {
-	float t=.o, a=1.;
+	float t=.0, a=1.;
 	for (int i=0; i<5; i++) {
 	    t+=a*noise(p);
 		p*=2.;
@@ -102,9 +101,8 @@ float fbm(vec2 p) {
 	}
 	return t;
 }
-
 vec3 palette(float t) { vec3 a=vec3(.2),b=vec3(.4),c=vec3(1),d=vec3(.12,.14,.16); return a+b*cos(6.3*(c*t*+d)); }
-vec3 pattern(vec2 uv) {
+vec3 pattern(vec2 uv) { 
     vec2 p=uv;
 	vec3 col=vec3(0);
 	float d=1.;
@@ -128,20 +126,20 @@ void main() {
   cam(rd);
   const float steps=400., maxd=12.;
   for (float i=.0; i<steps; i++) {
-  float d=map(p);
-  if (d<1e-3) {
-    vec3 n=norm(p),
-	r=reflect(rd,n),
-	bkg=bg(r);
-	float spec=max(.0,-r.y),
-	diff=max(.0,dot(l,n)*.5+.5);
-	n.xz=abs(n.xz);
-	col=mat == .0 ? mix(bkg,bg(r),1.-diff)*pow(spec,20.) : pattern(p.xy)*n.z+pattern(p.xz)*n.y+pattern(p.yz)*n.x;
+    float d=map(p);
+    if (d<1e-3) {
+      vec3 n=norm(p),
+	  r=reflect(rd,n),
+	  bkg=bg(r);
+	  float spec=max(.0,-r.y),
+	  diff=max(.0,dot(l,n)*.5+.5);
+	  n.xz=abs(n.xz);
+	  col=mat == .0 ? mix(bkg,bg(r),1.-diff)*pow(spec,20.) : pattern(p.xy)*n.z+pattern(p.xz)*n.y+pattern(p.yz)*n.x;
 
-	break;
+	  break;
   }
   if (d>maxd) break;
-  [+=rd*d;]
+  p+=rd*d;
   }
   O=vec4(col,1);
 }
@@ -182,9 +180,8 @@ function init() {
 	vertices = [
 		-1.,-1., 1.,
 		-1.,-1., 1.,
-		-1.,-1., 1.,
-		-1.,-1., 1.,
-		
+		-1., 1., 1.,
+		-1., 1., 1.,
 	]
 
 	buffer = gl.createBuffer()
@@ -194,13 +191,13 @@ function init() {
 
 	const position = gl.getAttribLocation(program, "position")
 
-	gl.enableVertextArrribArray(position)
+	gl.enableVertexAttribArray(position)
 	gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0)
 
 	program.resolution = gl.getUniformLocation(program, "resolution")
 	program.time = gl.getUniformLocation(program, "time")
 	program.touch = gl.getUniformLocation(program, "touch")
-	program.pointerCount = gl.getUniformLocation(program, 'pointerCount')
+	program.pointerCount = gl.getUniformLocation(program, "pointerCount")
 }
 
 const mouse = {
@@ -230,7 +227,7 @@ resize()
 loop(0)
 
 window.addEventListener("pointerdown", e => mouse.update(e.clientX, e.clientY, e.pointerId))
-window.addEventListener("ponterup", e => mouse.remove(e.pointerId))
+window.addEventListener("pointerup", e => mouse.remove(e.pointerId))
 window.addEventListener("pointermove", e => {
 	if (mouse.touches.has(e.pointerId))
 		mouse.update(e.clientX, e.clientY, e.pointerId)
