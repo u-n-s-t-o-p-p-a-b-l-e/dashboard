@@ -230,7 +230,7 @@
 }
 
 #body .out-wrap #payment .card .clayout .c-front .chiplogo > span.logo, #body .out-wrap #payment .card .clayout .c-back .chiplogo > span.logo {
-	transform: translated(0, 0, 0);
+	transform: translate3d(0, 0, 0);
 }
 
 #body .out-wrap #payment .card .clayout .c-front .chiplogo > span.logo b, #body .out-wrap #payment .card .clayout .c-back .chiplogo > span.logo b {
@@ -282,7 +282,7 @@
 	overflow: hidden;
 }
 
-#body .out-wrap #payment .card .clayout c.fornt .cname > span, #body .out-wrap #payment .card .clayout .c-front .cvtr > span, #body .out-wrap #payment .card .clayout .c-back .cname > span, #body .out-wrap #payment .card .clayout .c-back .cvtr > span {
+#body .out-wrap #payment .card .clayout .c-front .cname > span, #body .out-wrap #payment .card .clayout .c-front .cvtr > span, #body .out-wrap #payment .card .clayout .c-back .cname > span, #body .out-wrap #payment .card .clayout .c-back .cvtr > span {
 	display: block;
 	font-size: 8px;
 	color: #ccc;
@@ -292,7 +292,7 @@
 	text-transform: uppercase;
 }
 
-#body .out-wrap #payment .card .clayout .c-fron .cvtr, #body .out-wrap #payment .card .clayout .c-back .cvtr {
+#body .out-wrap #payment .card .clayout .c-front .cvtr, #body .out-wrap #payment .card .clayout .c-back .cvtr {
 	text-align: center;
 }
 

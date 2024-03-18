@@ -1,14 +1,13 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
-	$scope.f4    = "";
-	$scope.s4    = "";
-	$scope.t4    = "";
-	$scope.l4    = "";
+	$scope.f4 = "";
+	$scope.s4 = "";
+	$scope.t4 = "";
+	$scope.l4 = "";
 	$scope.hname = "";
-	$scope.edm   = "";
-	$scope.edy   = "";
-	$scope.cvv   = "";
-});
+	$scope.edm = "";
+	$scope.edy = "";
+	$scope.cvv = "";});
 
 $('.twin input').on('focus', function() {
 	$(this).parent().addClass('focusit');
@@ -31,7 +30,7 @@ $('.four-num input').on('keyup change', function() {
 	$in = $(this);
 	if ($in.val().length > 3) {
 		$in.next().focus();
-	};
+	}; 
 });
 
 $('input[ng-model="cvv"]').on('focus', function() {
