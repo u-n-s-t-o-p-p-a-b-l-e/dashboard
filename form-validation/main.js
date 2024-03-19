@@ -9,7 +9,8 @@ const message = document.querySelector(".message");
 
 username.addEventListener("input", validateUsername);
 email.addEventListener("input", validateEmail);
-password.addEventListener("input", validateConfirmPassword);
+password.addEventListener("input", validatePassword);
+confirmpassword.addEventListener("input", validateConfirmPassword);
 
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
@@ -27,7 +28,7 @@ form.addEventListener("submit", (e) => {
 function validateUsername() {
 	const usernameValue = username.value.trim();
 	if (usernameValue === "") {
-		setErrorFor(Username, "Username cannot be blank");
+		setErrorFor(username, "Username cannot be blank");
 		return false;
 	} else {
 		setSuccessFor(username);
@@ -35,12 +36,12 @@ function validateUsername() {
 	}
 }
 
-function validatemail() {
+function validateEmail() {
 	const emailValue = email.value.trim();
 	if (emailValue === "") {
 		setErrorFor(email, "Email cannot be blank");
 		return false;
-	} else if (!isEmail(emaiValue)) {
+	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, "Email is not valid");
 		return false;
 	} else {
@@ -89,7 +90,7 @@ function setErrorFor(input, message) {
 function setSuccessFor(input) {
 	const inputControl = input.parentElement;
 
-	inputControl.classlist.remove("error");
+	inputControl.classList.remove("error");
 	inputControl.classList.add("success");
 	inputControl.style.paddingBottom = "0";
 	inputControl.style.marginBottom = "20px";
