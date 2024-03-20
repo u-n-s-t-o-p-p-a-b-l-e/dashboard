@@ -2,7 +2,7 @@
 	--r: 20px;
 	--c: #171717;
 	--light-reflect: inset -5px 20px 2px -20px #fff, inset 5px -20px 2px -20px #fff;
-	--shadow-reflect: inset -19px 1px 2px -20px #000, inset 19px 1px 2px -20px #000, inset 19px 1px 2px -10px #000, inset -15px -26px 3px -30px #000;
+	--shadow-reflect: inset -19px 1px 2px -20px #000, inset 19px 1px 2px -20px #000, inset 19px 1px 2px -20px #000, inset -15px -26px 3px -30px #000;
 	--hh: 8rem;
 }
 
@@ -42,7 +42,7 @@ input {
 	background: none;
 	width: 100%;
 	height: 4rem;
-	padding 0 2rem;
+	padding: 0 2rem;
 	color: var(--c);
 }
 
@@ -94,19 +94,19 @@ input::placeholder {
 	text-shadow: 0.25em 0.25em 1px #00000010;
 	--shadow-color: 0deg 0% 64%;
 	--shadow-elevation-high:
-		0.5px 1px 1.1px hsl(var(--shadow-color) / 0.28),
-		1.4px 3.11px 3.4px -0.4px hsl(var(--shadow-color) / 0.28),
-		2.5px 5.3px 5.9px -0.7px hsl(var(--shadow-color) / 0.25),
-		3.9px 8.4px 9.3px -1.1px hsl(var(--shadow-color) / 0.24),
-		6px   12.9px 14.3px -1.5px hsl(var(--shadow-color) / 0.23),
-		9px   19.5px 21.6px -1.8px hsl(var(--shadow-color) / 0.21),
-		13.4px 28.9px 32px -2.2px hsl(var(--shadow-color) / 0.2),
-		19.3px 41.7px 46.2px -2.6px hsl(var(--shadow-color) / 0.19),
-		27.1px 58.5px 64.8px -2.9px hsl(var(--shadow-color) / 0.17),
-		37.1px 80px 88.6px -3.3px hsl(var(--shadow-color) / 0.16);
-	--inner-light: inset 0 -6px 2px -5px #ffffff24, inset 0 -8px 3px -5px #ffffff3b, inset 0 -20px 10px -15px #ffffff5c, inset 7px 25px 10px -10px #ffffff5c;
+	0.5px 1px 1.1px hsl(var(--shadow-color) / 0.28),
+	1.4px 3.1px 3.4px -0.4px hsl(var(--shadow-color) / 0.27),
+	2.5px 5.3px 5.9px -0.7px hsl(var(--shadow-color) / 0.25),
+	3.9px 8.4px 9.3px -1.1px hsl(var(--shadow-color) / 0.24),
+	6px 12.9px 14.3px -1.5px hsl(var(--shadow-color) / 0.23),
+	9px 19.5px 21.6px -1.8px hsl(var(--shadow-color) / 0.21),
+	13.4px 28.9px 32px -2.2px hsl(var(--shadow-color) / 0.2),
+	19.3px 41.7px 46.2px -2.6px hsl(var(--shadow-color) / 0.19),
+	27.1px 58.5px 64.8px -2.9px hsl(var(--shadow-color) / 0.17),
+	37.1px 80px 88.6px -3.3px hsl(var(--shadow-color) / 0.16);
+	--inner-light: inset 0 -6px 2px -5px #ffffff24, inset 0 -8px 3px -5px #ffffff3b, inset 0 -20px 10px -15px #ffffff5c, inset 7px 25px 10px -20px #ffffff5c;
 	--inner-shadow: inset -20px 5px 10px -20px #00000021, inset -40px 50px 7px -55px #00000021;
-	--external-light: 5px -30px 30px -20px #ffffff70, 5px 20px -20px #ffffff70;
+	--external-light: 5px -30px 30px -20px #ffffff70, 5px 10px 30px -20px #ffffff70;
 	--default: var(--external-light), var(--shadow-elevation-high), var(--inner-light), var(--inner-shadow);
 	box-shadow: var(--default);
 }
@@ -137,6 +137,7 @@ input::placeholder {
 .glass--heading:before, .glass--heading:after {
 	content: "";
 	pointer-events: none;
+	position: absolute;
 	inset: var(--i);
 	border-radius: calc(var(--r) - var(--i));
 	box-shadow: var(--light-reflect), var(--shadow-reflect);
@@ -150,8 +151,8 @@ input::placeholder {
 .glass:before {
 	--r: 20px;
 	--bp: 50px;
-	--s: calc(0% - var(--bp) + var(--r));
-	--e: calc(100% + var(--bp) - var(--r));
+	--s: calc(0% + var(--bp) + var(--r));
+	--e: calc(100% - var(--bp) - var(--r));
 	--z: calc(0% + var(--bp));
 	--h: calc(100% - var(--bp));
 	content: "";
@@ -169,13 +170,13 @@ input::placeholder {
 @keyframes icon {
 	0% {
 		rotate: 0deg;
-		sclae: 0.8;
+		scale: 0.8;
 		filter: hue-rotate(0deg);
 	}
 	50% {
 		rotate: 180deg;
 		scale: 1.2;
-		filter: hue-rotate(9deg);
+		filter: hue-rotate(90deg);
 	}
 	100% {
 		rotate: 360deg;
@@ -220,12 +221,12 @@ input::placeholder {
 	cursor: pointer;
 }
 
-.form:not(.open) [id=heding]:hover {
+.form:not(.open) [id=heading]:hover {
 	scale: 0.99;
 	filter: brightness(0.95);
 }
 
-.form:not(.open) [id=heding]:active {
+.form:not(.open) [id=heading]:active {
 	scale: 0.98;
 	filter: brightness(0.8);
 }
