@@ -1,0 +1,18 @@
+:root {
+	--r: 20px;
+	--c: #171717;
+	--light-reflect: inset -5px 20px 2px -20px #fff, inset 5px -20px 2px -20px #fff;
+	--shadow-reflect: inset -19px 1px 2px -20px #000, inset 19px 1px 2px -20px #000, inset 19px 1px 2px -10px #000, inset -15px -26px 3px -30px #000;
+	--hh: 8rem;
+}
+
+body {
+	display: flex;
+	padding: 0 2rem;
+	color: var(--c);
+	font-family: sans-serif;
+	align-items: center;
+	justify-content: center;
+	min-height: 100svh;
+	background: radial-gradient(#ffffff54 2px, transparent 0) 0 0/40px 40px, radial-gradient(#00000026 2px, transparent 0) -1px 1px/40px 40px, radial-gradient(ellipse at 150% -50%, #6d788f, #fff);
+}
