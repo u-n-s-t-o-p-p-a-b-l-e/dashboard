@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&display=swap");
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background-color: #3d3e4a;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #a3a7ad;
+	font-family: "IBM Plex Mono", monospace;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 12px;
+	flex-direction: column;
+}
