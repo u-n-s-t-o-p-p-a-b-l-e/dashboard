@@ -4,3 +4,4 @@
 <br>
 
 - Prize counter effects
+- 3 different color selection
